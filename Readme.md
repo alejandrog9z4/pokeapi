@@ -6,7 +6,7 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3.4.4** y **Java 17
 ## Requisitos Previos
 
 - **Java 17**
-- **Spring Boot 3.3.3**
+- **Spring Boot 3.2.5**
 - **Maven**
 - **Docker (opcional para el despliegue en contenedor)**
 
@@ -124,5 +124,5 @@ Para acceder a todos los endpoints disponibles, visita: `/actuator`
 - **Hosting**: Implementacion de S3 para hostear Front, propuest de solucion, no implementado en el proyecto temporalmente
 - **GitHub Actions**: Se implementa proceso de GitHub Actions que ejecuta el proceso de construccion del proyecto y genera la imagen docker para posteriormente subirla a docker hub e implementarla en las instancias.
 
-   
+  ![Arquitectura AWS](arquitectura_aws.png)
   
