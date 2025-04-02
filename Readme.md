@@ -79,8 +79,10 @@ Para acceder a todos los endpoints disponibles, visita: `/actuator`
 
 ---
 
-## 📸 Ejemplo de respuesta endpoint /pokemon
-
+## 📸 Ejemplo de reques y  response endpoint /pokemon
+```bash
+curl --location 'http://tetst-1574460261.us-east-1.elb.amazonaws.com/api/v1/pokemon'
+```
 ```json
 {
     "count": 1302,
@@ -104,7 +106,14 @@ Para acceder a todos los endpoints disponibles, visita: `/actuator`
     ]
 }
 ```
-## 📸 Ejemplo de respuesta endpoint /pokemon/id|name
+## 📸 Ejemplo de reques y response endpoint /pokemon/id|name
+```bash
+curl --location 'http://tetst-1574460261.us-east-1.elb.amazonaws.com/api/v1/pokemon/1'
+```
+```bash
+curl --location 'http://tetst-1574460261.us-east-1.elb.amazonaws.com/api/v1/pokemon/bulbasaur'
+```
+
 ```json
 {
  "id":1,
