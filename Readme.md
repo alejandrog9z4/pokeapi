@@ -79,16 +79,50 @@ Para acceder a todos los endpoints disponibles, visita: `/actuator`
 
 ---
 
-## 📸 Ejemplo de respuesta
+## 📸 Ejemplo de respuesta endpoint /pokemon
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "bulbasaur",
-    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    "weight": 69,
-    "types": ["grass", "poison"],
-    "abilities": ["overgrow", "chlorophyll"]
-  }
-]
+{
+    "count": 1302,
+    "next": "offset=12&limit=12",
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "name": "bulbasaur",
+            "image_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+            "weight": 69,
+            "type": [
+                "grass",
+                "poison"
+            ],
+            "abilities": [
+                "overgrow",
+                "chlorophyll"
+            ]
+        }
+    ]
+}
+```
+## 📸 Ejemplo de respuesta endpoint /pokemon/id|name
+```json
+{
+ "id":1,
+  "name":"bulbasaur",
+  "weight":69,
+  "image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+  "type":["grass","poison"],
+  "abilities":["overgrow","chlorophyll"],
+  "description":"A strange seed was planted on its back at birth.\fThe plant sprouts and grows with this POKéMON.A strange seed was       planted on its back at birth.\fThe plant sprouts and grows with this POKéMON.It can go for days without eating a single               morsel.\fIn the bulb on its back, it stores energy.The seed on its back is filled with nutrients.\fThe seed grows steadily larger     as its body grows.It carries a seed on its back right from birth. As it\fgrows older, the seed also grows larger.While it is          young, it uses the nutrients that are\fstored in the seeds on its back in order to grow.BULBASAUR can be seen napping in bright       sunlight. There is a seed on its back.\fBy soaking up the sun’s rays, the seed grows progressively larger.BULBASAUR can be seen       napping in bright sunlight. There is a seed on its back.\fBy soaking up the sun’s rays, the seed grows progressively                  larger.BULBASAUR can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed          grows progressively larger.There is a plant seed on its back right from the day this POKéMON is born. The seed slowly grows           larger.A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.For some time after its         birth, it grows by gaining nourishment from the seed on its back.For some time after its birth, it grows by gaining nourishment       from the seed on its back.For some time after its birth, it grows by gaining nourishment from the seed on its back.The seed on        its back is filled with nutrients. The seed grows steadily larger as its body grows.It carries a seed on its back right from          birth. As it grows older, the seed also grows larger.For some time after its birth, it grows by gaining nourishment from the seed     on its back.For some time after its birth, it grows by gaining nourishment from the seed on its back.For some time after its          birth, it grows by gaining nourishment from the seed on its back.For some time after its birth, it grows by gaining nourishment       from the seed on its back.A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.For some     time after its birth, it grows by gaining nourishment from the seed on its back.Bulbasaur can be seen napping in bright sunlight.     There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger.Bulbasaur can be seen napping in       bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger.It can go for         days without eating a single morsel. In the bulb on its back, it stores energy.It can go for days without eating a single morsel.     In the bulb on its back, it stores energy.There is a plant seed on its back right from the day this Pokémon is born. The seed         slowly grows larger.While it is young, it uses the nutrients that are stored in the seed on its back in order to grow.",
+  "evolutions":["ivysaur","venusaur"]
+}
+```
+## 📸 Diagrama de arquitectura AWS propuesta
+
+- **Seguridad**: Implementación de AWS WAF para proteger contra ataques comunes.
+- **Alta Disponibilidad y Escalabilidad**: Uso de Autoscaling Groups y ALB para garantizar la disponibilidad del servicio y su capacidad para escalar según la demanda.
+- **Hosting**: Implementacion de S3 para hostear Front, propuest de solucion, no implementado en el proyecto temporalmente
+- **GitHub Actions**: Se implementa proceso de GitHub Actions que ejecuta el proceso de construccion del proyecto y genera la imagen docker para posteriormente subirla a docker hub e implementarla en las instancias.
+
+   
+  
