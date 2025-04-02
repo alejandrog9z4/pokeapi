@@ -19,11 +19,11 @@ jobs:
           java-version: '17'
           cache: 'maven'
           
-      - name: Setup Docker
-        uses: docker/setup-docker-action@v4.0.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
           
       - name: Docker Login
-        uses: Docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -36,11 +36,12 @@ jobs:
         
       - name: Maven Package
         run: mvn package
-        
-        
-      - name: List Image
-        run: docker images
 
-      - name: Push Image to registry
-        run: docker push alejandrogudino/pokeapi:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/pokeapi:latest
       
