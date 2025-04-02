@@ -89,7 +89,7 @@
 		        			</execution>
 		      			</executions>
 		      <configuration>
-		        	<repository>pokeapi</repository>
+		        	<repository>alejandrogudino/pokeapi</repository>
 		        		<tag>latest</tag>
 		        			<buildArgs>
 		          				<JAR_FILE>target/pokeapi-0.0.1-SNAPSHOT.jar</JAR_FILE>
