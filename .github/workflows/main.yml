@@ -32,6 +32,9 @@ jobs:
         
       - name: Create Docker Image
         run: mvn dockerfile:build
+        
+      - name: List Image
+        run: docker images
 
       - name: Docker Login
         uses: Docker/login-action@v2
